@@ -40,4 +40,21 @@ defineProps({
 .modal-outer-leave-to {
   opacity: 0;
 }
+
+.modal-inner-enter-active {
+  transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0.15s;
+}
+
+.modal-inner-enter-active {
+  transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02);
+}
+
+.modal-inner-enter-from {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.modal-inner-leave-to {
+  transform: scale(0.8);
+}
 </style>
