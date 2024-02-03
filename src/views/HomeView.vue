@@ -12,6 +12,7 @@
         v-if="mapboxSearchReusults"
         class="absolute bg-weather-secondary text-white w-full shadow-md py-2 px-1 top-[66px]"
       >
+        <!-- TODO: Add better error handling -->
         <p v-if="searchError">Sorry, something went wrong, please try again.</p>
         <p v-if="mapboxSearchReusults.lenght == 0">No results for your query, please try again.</p>
         <template v-else>
