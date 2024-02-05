@@ -1,0 +1,53 @@
+<template>
+  <div v-for="city in savedCities" :key="city.id">
+    <SavedCityCard :city="city" @click="gotToCityView(city)" />
+  </div>
+
+  <p v-if="savedCities.length === 0">
+    No locations saved. To keep a list of your favourite places, search in the field above
+  </p>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import axios from 'axios';
+import SavedCityCard from './SavedCityCard.vue';
+import { useRouter } from 'vue-router';
+
+const savedCities = ref([]);
+
+const getCitiesFromLocalStorage = async () => {
+  if (localStorage.getItem(localStorage.key('savedCities'))) {
+    savedCities.value = JSON.parse(localStorage.getItem(localStorage.key('savedCities')));
+    console.log(savedCities.value);
+
+    const requests = [];
+    savedCities.value.forEach((city) => {
+      requests.push(
+        axios.get(
+          `https://api.openweathermap.org/data/3.0/onecall?lat=${city.coords.lat}&lon=${city.coords.lng}&appid=63766a46446a98de7b39171dc68dc049&units=metric`
+        )
+      );
+      console.log(requests);
+    });
+
+    // TODO: axios.all()?
+    const weatherDataFromApi = await Promise.all(requests);
+
+    weatherDataFromApi.forEach((value, index) => {
+      savedCities.value[index].weather = value.data;
+    });
+  }
+};
+
+await getCitiesFromLocalStorage();
+
+const router = useRouter();
+const gotToCityView = (city) => {
+  router.push({
+    name: 'cityView',
+    params: { state: city.state, city: city.city },
+    query: { lat: city.coords.lat, lng: city.coords.lng }
+  });
+};
+</script>

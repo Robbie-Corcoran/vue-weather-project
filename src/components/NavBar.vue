@@ -67,7 +67,7 @@ const route = useRoute();
 const router = useRouter();
 const addCity = () => {
   if (localStorage.getItem('savedCities')) {
-    savedCities.value = JSON.parse(localStorage.getItem('savedCities'));
+    savedCities.value = JSON.parse(localStorage.getItem(localStorage.key('savedCities')));
   }
 
   const locationObject = {
@@ -85,5 +85,7 @@ const addCity = () => {
   let query = Object.assign({}, route.query);
   delete query.preview;
   router.replace({ query });
+
+  console.log(localStorage.getItem(localStorage.key('savedCities')));
 };
 </script>

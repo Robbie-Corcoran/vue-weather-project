@@ -27,6 +27,14 @@
         </template>
       </ul>
     </div>
+    <div class="flex flex-col gap-4">
+      <Suspense>
+        <SavedCityList />
+        <template #fallback>
+          <p>Loading...</p>
+        </template>
+      </Suspense>
+    </div>
   </main>
 </template>
 
@@ -34,6 +42,7 @@
 import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
+import SavedCityList from '../components/SavedCityList.vue';
 
 const mapboxApiKey =
   'pk.eyJ1Ijoicm9iYmllY29yY29yYW45NCIsImEiOiJjbHM2OTk2OWIxbXY2Mnlydzk1Ymw5NjQyIn0.yjYx0GoFHx-SFYv1Bn_bIA';
