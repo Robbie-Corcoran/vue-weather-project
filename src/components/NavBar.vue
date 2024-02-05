@@ -13,8 +13,11 @@
           class="fa-solid fa-circle-info text-xl hover:text-weather-secondary duration-150 cursor-pointer"
           @click="toggleModal"
         ></i>
+        <!-- TODO: Add confirmation of selction. -->
         <i
           class="fa-solid fa-plus text-xl hover:text-weather-secondary duration-150 cursor-pointer"
+          @click="addCity"
+          v-if="route.query.preview"
         ></i>
       </div>
 
@@ -49,12 +52,38 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 import BaseModal from './BaseModal.vue';
+import { uid } from 'uid';
 import { ref } from 'vue';
 
 const modalActive = ref(null);
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
+};
+
+const savedCities = ref([]);
+const route = useRoute();
+const router = useRouter();
+const addCity = () => {
+  if (localStorage.getItem('savedCities')) {
+    savedCities.value = JSON.parse(localStorage.getItem('savedCities'));
+  }
+
+  const locationObject = {
+    id: uid(),
+    state: route.params.state,
+    city: route.params.city,
+    coords: {
+      lat: route.query.lat,
+      lng: route.query.lng
+    }
+  };
+
+  savedCities.value.push(locationObject);
+  localStorage.setItem('savedCities,', JSON.stringify(savedCities.value));
+  let query = Object.assign({}, route.query);
+  delete query.preview;
+  router.replace({ query });
 };
 </script>
