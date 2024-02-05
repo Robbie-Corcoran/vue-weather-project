@@ -3,7 +3,7 @@
     <Suspense>
       <AsyncCityView />
       <template #fallback>
-        <img class="bg-transparent" src="../../public/loading.gif" alt="" />
+        <img class="bg-transparent" src="/loading.gif" alt="" />
       </template>
     </Suspense>
   </div>
