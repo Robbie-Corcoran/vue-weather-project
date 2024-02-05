@@ -27,6 +27,7 @@ const getWeatherData = async () => {
     return weatherData;
   } catch (err) {
     console.log(err);
+    console.log(err.response.data.message);
   }
 };
 
