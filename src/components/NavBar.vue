@@ -3,7 +3,11 @@
     <nav class="container flex flex-col sm:flex-row items-center gap-4 text-white py-6">
       <RouterLink :to="{ name: 'home' }">
         <div class="flex items-center gap-3 flex-1">
-          <i class="fa-regular fa-sun text-2xl"></i>
+          <img
+            class="max-w-8"
+            src="/Users/salt-dev/Desktop/Coding/Altix/vue-weather-project/public/sun.png"
+            alt=""
+          />
           <p class="text-2xl">Wetflix</p>
         </div>
       </RouterLink>
@@ -49,12 +53,12 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
-import BaseModal from './BaseModal.vue'
-import { ref } from 'vue'
+import { RouterLink } from 'vue-router';
+import BaseModal from './BaseModal.vue';
+import { ref } from 'vue';
 
-const modalActive = ref(null)
+const modalActive = ref(null);
 const toggleModal = () => {
-  modalActive.value = !modalActive.value
-}
+  modalActive.value = !modalActive.value;
+};
 </script>
