@@ -27,7 +27,7 @@
 import { metricToImperial } from './ToggleUnits/convertUnits';
 
 const convertTemperature = (temperature) => {
-  return props.unitPreference === 'metric' ? temperature : metricToImperial(temperature);
+  return props.unitPreference === 'Metric' ? temperature : metricToImperial(temperature);
 };
 const props = defineProps({
   city: {
