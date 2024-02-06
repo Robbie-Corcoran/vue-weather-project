@@ -1,12 +1,5 @@
 # SkyGuard Weather App
 
-<p align="center">
-  <a href="https://skyguard-weather.vercel.app//">
-    <img src="https://raw.githubusercontent.com/Robbie-Corcoran/vue-weather-project/blob/main/public/sun.png"
-         alt="SkyGuard Logo" height="200px" width="200px">
-  </a>
-</p>
-
 SkyGuard is a comprehensive weather application designed to provide users with accurate and easy-to-understand weather forecasts for their chosen locations. Built with Vue.js and JavaScript, SkyGuard offers a clean, intuitive interface that ensures users can quickly access the information they need.
 
 ## Features
