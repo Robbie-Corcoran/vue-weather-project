@@ -1,57 +1,38 @@
-# vue-weather-project
+# SkyGuard Weather App
 
-This template should help get you started developing with Vue 3 in Vite.
+<p align="center">
+  <a href="https://skyguard-weather.vercel.app//">
+    <img src="https://raw.githubusercontent.com/Robbie-Corcoran/vue-weather-project/blob/main/public/sun.png"
+         alt="SkyGuard Logo" height="200px" width="200px">
+  </a>
+</p>
 
-## Recommended IDE Setup
+SkyGuard is a comprehensive weather application designed to provide users with accurate and easy-to-understand weather forecasts for their chosen locations. Built with Vue.js and JavaScript, SkyGuard offers a clean, intuitive interface that ensures users can quickly access the information they need.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Features
 
-## Customize configuration
+- **Multiple Locations**: Users can search for and add multiple locations to get detailed weather forecasts for each.
+- **5-Day Forecast**: The app displays a 5-day weather forecast for the selected location(s), giving users a clear view of the upcoming weather patterns.
+- **Responsive Design**: SkyGuard features a visually appealing design that adapts to both desktop and mobile devices, providing a consistent experience across platforms.
+- **Integration with Mapbox API & OpenWeatherMap API**: Leveraging the power of Mapbox API for location data and OpenWeatherMap API for weather data, SkyGuard delivers reliable and timely weather updates.
+- **Error Handling**: The app handles API responses and potential errors gracefully, ensuring a smooth user experience even in unexpected situations.
+- **Loading Indicator**: While waiting for API data, a loading indicator keeps users informed and engaged.
+- **Unit Conversion**: Users have the flexibility to toggle between Celsius and Fahrenheit for temperature readings, accommodating different preferences.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Installation and Setup
 
-## Project Setup
+To set up SkyGuard on your local machine, follow these steps:
 
-```sh
-npm install
-```
+1. Clone the repository: `git clone https://github.com/Robbie-Corcoran/vue-weather-project.git`
+2. Navigate to the project folder: `cd vue-weather-project`
+3. Install dependencies: `npm install` or `npm i`
+4. Start the development server: `npm start` or `npm run dev`
+5. Access the application at `http://localhost:5173`.
 
-### Compile and Hot-Reload for Development
+## Contributing
 
-```sh
-npm run dev
-```
+Contributions to SkyGuard are welcome! If you have improvements, bug fixes, or feature requests, feel free to open an issue or submit a pull request.
 
-### Compile and Minify for Production
+---
 
-```sh
-npm run build
-```
-
-### Run Headed Component Tests with [Cypress Component Testing](https://on.cypress.io/component)
-
-```sh
-npm run test:unit:dev # or `npm run test:unit` for headless testing
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Visit SkyGuard at [https://skyguard-weather.vercel.app/](https://skyguard-weather.vercel.app/) to start exploring the weather forecast for your favorite places!
