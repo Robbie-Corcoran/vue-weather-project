@@ -75,7 +75,8 @@ const getSearchResults = () => {
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchQuery.value}.json?access_token=${mapboxApiKey}&types=place`
         );
         mapboxSearchReusults.value = result.data.features;
-      } catch {
+      } catch (err) {
+        console.error(err);
         searchError.value = true;
       }
       return;
