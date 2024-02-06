@@ -8,14 +8,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Home'
+      }
     },
     {
       path: '/weather/:state/:city',
       name: 'cityView',
-      component: CityView
+      component: CityView,
+      meta: {
+        title: 'Weather'
+      }
     }
   ]
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = `${
+    to.params.state ? `${to.params.city}, ${to.params.state}` : to.meta.title
+  } | SkyGuard`;
+  next();
 });
 
 export default router;
