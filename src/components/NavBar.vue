@@ -4,7 +4,7 @@
       <RouterLink :to="{ name: 'home' }">
         <div class="flex items-center gap-3 flex-1">
           <img class="max-w-8" src="/sun.png" alt="" />
-          <p class="text-2xl">Wetflix</p>
+          <p class="text-2xl">SkyGuard</p>
         </div>
       </RouterLink>
 
@@ -86,7 +86,5 @@ const addCity = () => {
   delete query.preview;
   query.id = locationObject.id;
   router.replace({ query });
-
-  console.log(localStorage.getItem(localStorage.key('savedCities')));
 };
 </script>
