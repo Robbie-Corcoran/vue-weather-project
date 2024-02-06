@@ -23,12 +23,12 @@
       <BaseModal
         :modalActive="modalActive"
         @close-modal="toggleModal"
-        class="fixed inset-0 flex items-center justify-center z-50"
+        class="fixed inset-0 flex items-center justify-center"
       >
         <div class="text-black">
           <h1 class="text-2xl mb-1">About:</h1>
           <p class="mb-4">
-            Wetflix allows you to track the current and future weather of cities of your choosing.
+            SkyGuards allows you to track the current and future weather of cities of your choosing.
           </p>
           <h2 class="text-2xl">How it works:</h2>
           <ol class="list-decimal list-inside mb-4">
