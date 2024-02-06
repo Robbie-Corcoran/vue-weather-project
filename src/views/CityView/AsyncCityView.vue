@@ -5,6 +5,13 @@
       <p>You are currently previewing this city, click "+" icon to start tracking this city</p>
     </div>
 
+    <button class="flex justify-end">
+      <ToggleUnitButton
+        :unitPreference="unitPreference"
+        :toggleUnitPreference="toggleUnitPreference"
+      />
+    </button>
+
     <!-- Weather Overview -->
     <div class="flex flex-col items-center text-white py-12">
       <h1 class="text-4xl mb-2">{{ route.params.city }}</h1>
@@ -19,8 +26,10 @@
         }}
         {{ new Date(weatherData.currentTime).toLocaleTimeString('en-us', { timeStyle: 'short' }) }}
       </p>
-      <p class="text-8xl mb-8">{{ Math.round(weatherData.current.temp) }}&deg;</p>
-      <p>Feels like: {{ Math.round(weatherData.current.feels_like) }}&deg;</p>
+      <p class="text-8xl mb-8">
+        {{ Math.round(convertTemperature(weatherData.current.temp)) }}&deg;
+      </p>
+      <p>Feels like: {{ Math.round(convertTemperature(weatherData.current.feels_like)) }}&deg;</p>
       <p class="capitalize">scattered clouds</p>
       <img
         class="w-[150px] h-auto"
@@ -53,7 +62,7 @@
               :src="`http://openweathermap.org/img/wn/${hourData.weather[0].icon}@2x.png`"
               alt=""
             />
-            <p class="text-xl">{{ Math.round(hourData.temp) }}&deg;</p>
+            <p class="text-xl">{{ Math.round(convertTemperature(hourData.temp)) }}&deg;</p>
           </div>
         </div>
       </div>
@@ -79,13 +88,14 @@
             alt=""
           />
           <div class="flex gap-2 flex-1 justify-end">
-            <p>H: {{ Math.round(day.temp.max) }}&deg;</p>
-            <p>L: {{ Math.round(day.temp.min) }}&deg;</p>
+            <p>H: {{ Math.round(convertTemperature(day.temp.max)) }}&deg;</p>
+            <p>L: {{ Math.round(convertTemperature(day.temp.min)) }}&deg;</p>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Remove City -->
     <div
       class="flex items-center gap-2 py-12 text-white cursor-pointer duration-150 hover:text-red-500"
       @click="removeCity"
@@ -100,6 +110,9 @@
 <script setup>
 import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
+import { ref } from 'vue';
+import ToggleUnitButton from '../../components/ToggleUnits/ToggleUnitButton.vue';
+import { metricToImperial } from '../../components/ToggleUnits/convertUnits.js';
 
 const route = useRoute();
 let lat = parseFloat(route.query.lat).toFixed(2);
@@ -133,6 +146,17 @@ const getWeatherData = async () => {
 const weatherData = await getWeatherData();
 
 const router = useRouter();
+
+const unitPreference = ref('Metric');
+
+const toggleUnitPreference = () => {
+  unitPreference.value = unitPreference.value === 'Metric' ? 'Imperial' : 'Metric';
+};
+
+const convertTemperature = (temperature) => {
+  return unitPreference.value === 'Metric' ? temperature : metricToImperial(temperature);
+};
+
 const removeCity = () => {
   const cities = JSON.parse(localStorage.getItem(localStorage.key('savedCities')));
 

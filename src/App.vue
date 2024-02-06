@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen font-Roboto bg-weather-primary">
-    <NavBar />
+    <NavBar class="z-50" />
     <RouterView v-slot="{ Component }">
       <Transition name="page" mode="out-in">
         <component :is="Component" />

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col flex-1">
     <!-- Overview -->
-    <div class="flex flex-col py-12 items-center">
+    <div class="flex flex-col py-14 items-center">
       <LoadingAnimation class="max-w-[300px] w-full mb-2" />
       <LoadingAnimation class="max-w-[300px] w-full mb-12" />
       <LoadingAnimation class="max-w-[300px] h-[100px] w-full mb-12" />

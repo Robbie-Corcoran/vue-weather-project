@@ -1,5 +1,5 @@
 <template>
-  <div class="flex py-6 px-3 bg-weather-secondary rounded-md shaodw-md">
+  <div class="flex py-7 px-3 bg-weather-secondary rounded-md shaodw-md">
     <div class="flex flex-col flex-1 gap-2">
       <LoadingAnimation class="max-w-[50%]" />
       <LoadingAnimation class="max-w-[40%]" />
