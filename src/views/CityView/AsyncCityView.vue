@@ -5,7 +5,7 @@
       <p>You are currently previewing this city, click "+" icon to start tracking this city</p>
     </div>
 
-    <button class="flex flex-row-reverse w-full mt-5 fixed">
+    <button class="flex flex-row-reverse w-full mt-5">
       <ToggleUnitButton
         :unitPreference="unitPreference"
         :toggleUnitPreference="toggleUnitPreference"
