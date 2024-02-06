@@ -5,7 +5,7 @@
       <p>You are currently previewing this city, click "+" icon to start tracking this city</p>
     </div>
 
-    <button class="flex justify-end">
+    <button class="flex flex-row-reverse w-full mt-5 fixed">
       <ToggleUnitButton
         :unitPreference="unitPreference"
         :toggleUnitPreference="toggleUnitPreference"
@@ -13,7 +13,7 @@
     </button>
 
     <!-- Weather Overview -->
-    <div class="flex flex-col items-center text-white py-12">
+    <div class="flex flex-col items-center text-white py-9">
       <h1 class="text-4xl mb-2">{{ route.params.city }}</h1>
 
       <p class="text-sm mb-12">
@@ -26,7 +26,7 @@
         }}
         {{ new Date(weatherData.currentTime).toLocaleTimeString('en-us', { timeStyle: 'short' }) }}
       </p>
-      <p class="text-8xl mb-8">
+      <p class="text-8xl mb-6">
         {{ Math.round(convertTemperature(weatherData.current.temp)) }}&deg;
       </p>
       <p>Feels like: {{ Math.round(convertTemperature(weatherData.current.feels_like)) }}&deg;</p>
