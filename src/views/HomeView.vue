@@ -31,7 +31,7 @@
       <Suspense>
         <SavedCityList />
         <template #fallback>
-          <p>Loading...</p>
+          <SavedCitySkeleton />
         </template>
       </Suspense>
     </div>
@@ -43,6 +43,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import SavedCityList from '../components/SavedCityList.vue';
+import SavedCitySkeleton from '@/components/SavedCitySkeleton.vue';
 
 const mapboxApiKey =
   'pk.eyJ1Ijoicm9iYmllY29yY29yYW45NCIsImEiOiJjbHM2OTk2OWIxbXY2Mnlydzk1Ymw5NjQyIn0.yjYx0GoFHx-SFYv1Bn_bIA';

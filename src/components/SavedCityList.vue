@@ -19,7 +19,6 @@ const savedCities = ref([]);
 const getCitiesFromLocalStorage = async () => {
   if (localStorage.getItem(localStorage.key('savedCities'))) {
     savedCities.value = JSON.parse(localStorage.getItem(localStorage.key('savedCities')));
-    console.log(savedCities.value);
 
     const requests = [];
     savedCities.value.forEach((city) => {
@@ -28,11 +27,12 @@ const getCitiesFromLocalStorage = async () => {
           `https://api.openweathermap.org/data/3.0/onecall?lat=${city.coords.lat}&lon=${city.coords.lng}&appid=63766a46446a98de7b39171dc68dc049&units=metric`
         )
       );
-      console.log(requests);
     });
 
     // TODO: axios.all()?
     const weatherDataFromApi = await Promise.all(requests);
+
+    await new Promise((res) => setTimeout(res, 1000));
 
     weatherDataFromApi.forEach((value, index) => {
       savedCities.value[index].weather = value.data;
