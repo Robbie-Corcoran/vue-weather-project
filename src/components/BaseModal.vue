@@ -5,7 +5,7 @@
       class="absolute w-full bg-black bg-opacity-30 h-screen top-0 left-0 px-8"
     >
       <Transition name="modal-inner">
-        <div v-if="modalActive" class="p-4 bg-white self-start mt-32 max-w-screen-md">
+        <div v-if="modalActive" class="p-4 bg-white self-start mt-20 max-w-screen-md">
           <slot />
           <button
             class="text-white mt-8 bg-weather-primary py-2 px-6"
