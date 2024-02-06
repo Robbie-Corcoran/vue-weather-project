@@ -20,7 +20,11 @@
         ></i>
       </div>
 
-      <BaseModal :modalActive="modalActive" @close-modal="toggleModal">
+      <BaseModal
+        :modalActive="modalActive"
+        @close-modal="toggleModal"
+        class="fixed inset-0 flex items-center justify-center z-50"
+      >
         <div class="text-black">
           <h1 class="text-2xl mb-1">About:</h1>
           <p class="mb-4">
