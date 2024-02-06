@@ -126,8 +126,7 @@ const getWeatherData = async () => {
 
     return weatherData.data;
   } catch (err) {
-    console.log(err);
-    console.log(err.response.data.message);
+    console.error(err);
   }
 };
 
