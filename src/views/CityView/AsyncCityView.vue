@@ -112,7 +112,7 @@ import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
 import { ref } from 'vue';
 import ToggleUnitButton from '../../components/ToggleUnits/ToggleUnitButton.vue';
-import { metricToImperial, imperialToMetric } from '../../components/ToggleUnits/convertUnits.js';
+import { metricToImperial } from '../../components/ToggleUnits/convertUnits.js';
 
 const route = useRoute();
 let lat = parseFloat(route.query.lat).toFixed(2);
