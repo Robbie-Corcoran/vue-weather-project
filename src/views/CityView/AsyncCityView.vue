@@ -14,7 +14,7 @@
           new Date(weatherData.currentTime).toLocaleDateString('en-us', {
             weekday: 'short',
             day: '2-digit',
-            month: 'long'
+            month: 'short'
           })
         }}
         {{ new Date(weatherData.currentTime).toLocaleTimeString('en-us', { timeStyle: 'short' }) }}
@@ -85,12 +85,21 @@
         </div>
       </div>
     </div>
+
+    <div
+      class="flex items-center gap-2 py-12 text-white cursor-pointer duration-150 hover:text-red-500"
+      @click="removeCity"
+      v-if="!route.query.preview"
+    >
+      <i class="fa-solid fa-trash"></i>
+      <p>Remove City</p>
+    </div>
   </div>
 </template>
 
 <script setup>
 import axios from 'axios';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
 let lat = parseFloat(route.query.lat).toFixed(2);
@@ -113,12 +122,22 @@ const getWeatherData = async () => {
       hour.currentTime = utc + 1000 * weatherData.data.timezone_offset;
     });
 
+    await new Promise((res) => setTimeout(res, 1000));
+
     return weatherData.data;
   } catch (err) {
-    console.log(err);
-    console.log(err.response.data.message);
+    console.error(err);
   }
 };
 
 const weatherData = await getWeatherData();
+
+const router = useRouter();
+const removeCity = () => {
+  const cities = JSON.parse(localStorage.getItem(localStorage.key('savedCities')));
+
+  const updatedCities = cities.filter((city) => city.id !== route.query.id);
+  localStorage.setItem(localStorage.key('savedCities'), JSON.stringify(updatedCities));
+  router.push({ name: 'home' });
+};
 </script>
