@@ -3,12 +3,13 @@
     <Suspense>
       <AsyncCityView />
       <template #fallback>
-        <img class="bg-transparent" src="/loading.gif" alt="" />
+        <SavedCityCardSkeleton />
       </template>
     </Suspense>
   </div>
 </template>
 
 <script setup>
+import SavedCityCardSkeleton from '@/components/SavedCityCardSkeleton.vue';
 import AsyncCityView from './AsyncCityView.vue';
 </script>
