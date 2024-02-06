@@ -4,7 +4,7 @@
       <RouterLink :to="{ name: 'home' }">
         <div class="flex items-center gap-3 flex-1">
           <img class="max-w-10" src="/sun.png" alt="" />
-          <p class="text-2xl pt-3">SkyGuard</p>
+          <p class="text-2xl pt-1">SkyGuard</p>
         </div>
       </RouterLink>
 
