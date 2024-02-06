@@ -14,7 +14,7 @@
       >
         <!-- TODO: Add better error handling and tests -->
         <p v-if="searchError">Sorry, something went wrong, please try again.</p>
-        <p v-if="mapboxSearchReusults.lenght == 0">No results for your query, please try again.</p>
+        <p v-if="mapboxSearchReusults.length == 0">No results for your query, please try again.</p>
         <template v-else>
           <li
             v-for="searchResult in mapboxSearchReusults"

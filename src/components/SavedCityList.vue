@@ -29,7 +29,6 @@ const getCitiesFromLocalStorage = async () => {
       );
     });
 
-    // TODO: axios.all()?
     const weatherDataFromApi = await Promise.all(requests);
 
     await new Promise((res) => setTimeout(res, 1000));
