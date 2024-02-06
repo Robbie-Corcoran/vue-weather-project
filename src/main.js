@@ -13,4 +13,8 @@ app.config.errorHandler = (err, instance, info) => {
 
 app.use(router);
 
+router.onError((err) => {
+  console.error('Router error:', err);
+});
+
 app.mount('#app');
